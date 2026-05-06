@@ -11,8 +11,8 @@ export INTERNAL_IP
 # makes native loads probe /usr/share/dotnet/*.so and breaks games with bundled .so in the server dir.
 export DOTNET_ROOT=/usr/share/dotnet
 
-printf "\033[1m\033[33mcontainer~ \033[0mdotnet --version\n"
-dotnet --version
+printf "\033[1m\033[33mcontainer~ \033[0mdotnet --list-runtimes\n"
+dotnet --list-runtimes
 
 MODIFIED_STARTUP=$(echo -e "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g')
 echo -e ":/home/container$ ${MODIFIED_STARTUP}"
