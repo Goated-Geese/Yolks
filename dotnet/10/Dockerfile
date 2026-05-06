@@ -42,7 +42,10 @@ COPY --chown=container:container entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 USER container
-ENV USER=container HOME=/home/container DOTNET_ROOT=/usr/share
+ENV USER=container HOME=/home/container \
+    DOTNET_ROOT=/usr/share/dotnet \
+    LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8
 WORKDIR /home/container
 
 STOPSIGNAL SIGINT
